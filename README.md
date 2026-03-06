@@ -87,13 +87,15 @@ Lat / Lon + pixel footprint polygon
 Ground projection of the central pixel (i=512, j=512) for 5 different attitudes: nadir, roll 10°, roll 20°, pitch 10°, pitch 20°. Orbit: 500 km SSO, sphere intersection model.
 Roll displaces the pixel cross-track (longitude), pitch displaces it along-track (latitude). At 500 km altitude, a 10° roll corresponds to ~88 km of ground displacement. The residual latitude offset on roll cases reflects Earth curvature effects on the spherical intersection model.
 
-<img width="652/2" height="789/2" alt="image" src="https://github.com/user-attachments/assets/edd7424b-1e45-4f05-9873-3f9f4ae7aef0" />
+<img width="652" height="789" alt="image" src="https://github.com/user-attachments/assets/edd7424b-1e45-4f05-9873-3f9f4ae7aef0" />
 
 
-### Pixel footprint deformation
+### Pixel footprint deformation — roll, pitch and combined attitude
+Ground projection of the 4 corners of the central pixel (i=512, j=512) for 4 attitude cases: nadir, roll 10°, pitch 10°, and combined roll+pitch 10°. Coordinates are expressed in metres relative to the pixel center. Orbit: 500 km SSO, sphere intersection model.
+Roll shears the pixel along the cross-track axis, pitch along the along-track axis. The combined case shows how both effects accumulate, producing a pixel that is both displaced and geometrically distorted. At 500 km altitude with f=1.5m and 3.6µm pitch, the ground sampling distance is ~1.2m — the deformation, while sub-metre, is measurable and mission-relevant for geolocation accuracy and cal/val budget.
 
-4-corner projection of a single pixel at different off-nadir angles.  
-Shows how a square pixel becomes a trapezoid — and how the deformation grows with angle.
+<img width="1589" height="536" alt="image" src="https://github.com/user-attachments/assets/668457f2-17b0-4343-9736-38d56694f1b0" />
+
 
 ### Attitude sensitivity
 
