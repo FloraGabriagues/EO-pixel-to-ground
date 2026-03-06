@@ -87,6 +87,8 @@ Lat / Lon + pixel footprint polygon
 Ground projection of the central pixel (i=512, j=512) for 5 different attitudes: nadir, roll 10°, roll 20°, pitch 10°, pitch 20°. Orbit: 500 km SSO, sphere intersection model.
 Roll displaces the pixel cross-track (longitude), pitch displaces it along-track (latitude). At 500 km altitude, a 10° roll corresponds to ~88 km of ground displacement. The residual latitude offset on roll cases reflects Earth curvature effects on the spherical intersection model.
 
+<img width="774" height="789" alt="image" src="https://github.com/user-attachments/assets/98ff1e72-67f0-48d6-aa53-7dd43805357a" />
+
 ### Pixel footprint deformation
 
 4-corner projection of a single pixel at different off-nadir angles.  
