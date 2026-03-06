@@ -96,12 +96,6 @@ Roll shears the pixel along the cross-track axis, pitch along the along-track ax
 
 <img width="1589" height="536" alt="image" src="https://github.com/user-attachments/assets/668457f2-17b0-4343-9736-38d56694f1b0" />
 
-
-### Attitude sensitivity
-
-Ground position shift as a function of roll angle (0° → 30°), for a 500 km orbit.  
-Typical output: ~9 km/degree of roll at nadir.
-
 ---
 
 ## Instrument configuration
