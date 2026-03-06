@@ -72,6 +72,7 @@ Lat / Lon + pixel footprint polygon
 - Flat plane (local approximation)
 - Spherical Earth (R = 6371 km)
 - WGS84 ellipsoid (a = 6378.137 km, b = 6356.752 km)
+- DEM *(coming soon — terrain elevation for high-accuracy geolocation)*
 
 **Visualization**
 - Ground point projection on OpenStreetMap basemap
@@ -95,50 +96,6 @@ Ground projection of the 4 corners of the central pixel (i=512, j=512) for 4 att
 Roll shears the pixel along the cross-track axis, pitch along the along-track axis. The combined case shows how both effects accumulate, producing a pixel that is both displaced and geometrically distorted. At 500 km altitude with f=1.5m and 3.6µm pitch, the ground sampling distance is ~1.2m — the deformation, while sub-metre, is measurable and mission-relevant for geolocation accuracy and cal/val budget.
 
 <img width="1589" height="536" alt="image" src="https://github.com/user-attachments/assets/668457f2-17b0-4343-9736-38d56694f1b0" />
-
----
-
-## Instrument configuration
-
-```python
-instrument = {
-    "f"  : 1.55,       # focal length (m)
-    "px" : 3.2e-6,     # pixel pitch along i (m)
-    "py" : 3.2e-6,     # pixel pitch along j (m)
-    "i0" : 1023.5,     # principal point — row
-    "j0" : 1023.5,     # principal point — col
-    "boresight": {
-        "bx": 0.0,     # rotation around X_inst (rad)
-        "by": 0.0,     # rotation around Y_inst (rad)
-        "bz": 0.0      # rotation around Z_inst (rad)
-    }
-}
-```
-
-## Satellite & orbit configuration
-
-```python
-satellite = {
-    "position_sat_ECI" : position_ECI,          # (3,) array, metres
-    "velocity_sat_ECI" : velocity_ECI,           # (3,) array, m/s
-    "t_utc"            : np.datetime64("2025-05-01T14:00:00"),
-    "att_quat_RPY"     : [10.0, 0.0, 0.0]       # RPY in degrees, or quaternion [w,x,y,z]
-}
-```
-
-## Usage
-
-```python
-lat, lon = project_pixel_center_to_ground(
-    i=512, j=512,
-    instrument=instrument,
-    IF_misalignment=IF_misalignment,
-    satellite=satellite,
-    att_mode="RPY",          # "RPY" or "quaternion"
-    earth_model="ellipsoid", # "plane", "sphere", "ellipsoid"
-    plot=True
-)
-```
 
 ---
 
