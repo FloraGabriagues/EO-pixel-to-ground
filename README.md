@@ -83,10 +83,9 @@ Lat / Lon + pixel footprint polygon
 
 ## Example outputs
 
-### Single pixel projection — nadir vs. 15° roll
-
-Nadir pixel and rolled pixel projected on the ground, with LOS visualized.  
-The ground displacement and pixel shape deformation are directly readable on the map.
+### Single pixel projection — attitude sensitivity
+Ground projection of the central pixel (i=512, j=512) for 5 different attitudes: nadir, roll 10°, roll 20°, pitch 10°, pitch 20°. Orbit: 500 km SSO, sphere intersection model.
+Roll displaces the pixel cross-track (longitude), pitch displaces it along-track (latitude). At 500 km altitude, a 10° roll corresponds to ~88 km of ground displacement. The residual latitude offset on roll cases reflects Earth curvature effects on the spherical intersection model.
 
 ### Pixel footprint deformation
 
