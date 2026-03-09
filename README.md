@@ -107,18 +107,6 @@ The polygon boundary follows the natural curvature induced by the spherical Eart
 
 ---
 
-## Modules
-
-| Module | Content |
-|---|---|
-| `LOS.py` | Full projection chain, pixel footprint |
-| `attitude.py` | RPY → quaternion, quaternion → DCM |
-| `earth.py` | ECI ↔ ECEF, ECEF → lat/lon, LVLH → ECI, ellipsoid intersection, lat/lon → geodesic distance |
-| `satellite.py` | Orbital velocity, LVLH frame construction |
-| `display.py` | Basemap visualization, footprint rendering |
-
----
-
 ## Dependencies
 
 ```
