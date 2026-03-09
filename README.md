@@ -10,13 +10,13 @@ Developed by [Flora Gabriagues](https://floragabriagues.github.io) — Optical P
 
 ## What it does
 
-Given a pixel index, an instrument model, an attitude, and an orbit position, the toolbox computes where that pixel projects on the ground — and what shape it takes.
+Given a pixel index, an instrument model, an attitude, and an orbit position, the toolbox computes where that pixel projects on the ground and what shape it takes.
 
 This enables:
 - **Ground footprint simulation** for any pixel or region of the focal plane
 - **Geometric deformation analysis** as a function of off-nadir angle, roll, pitch, yaw
 - **Sensitivity studies** on boresight, instrument–platform misalignment, attitude errors
-- **Cal/Val preparation** — expected vs. observed ground position of known GCPs
+- **Cal/Val preparation** expected vs. observed ground position of known GCPs
 
 ---
 
@@ -52,7 +52,7 @@ Lat / Lon + pixel footprint polygon
 
 ---
 
-## Key features
+## Hypothesis and key features
 
 **Instrument model**
 - Pinhole camera: focal length, pixel pitch, principal point
@@ -64,9 +64,9 @@ Lat / Lon + pixel footprint polygon
 - Independent from boresight — matches real ICD structure
 
 **Attitude**
-- Input: quaternion `[w, x, y, z]` (body → ECI) or Roll/Pitch/Yaw angles (deg)
-- RPY → quaternion conversion (ZYX convention)
-- Quaternion → DCM with norm validation
+- Input: quaternion `[w, x, y, z] or Roll/Pitch/Yaw angles (deg), both Rsat -> LVLH
+- RPY input are translated into a quaternion (ZYX conversion convention)
+- Quaternion is translated into a DCM with norm validation
 
 **Earth model**
 - Flat plane (local approximation)
@@ -77,7 +77,7 @@ Lat / Lon + pixel footprint polygon
 **Visualization**
 - Ground point projection on OpenStreetMap basemap
 - Pixel footprint polygon (4-corner projection)
-- Multi-pixel swath simulation
+- Multi-pixel swath simulation (coming son)
 - Geometric deformation as a function of attitude angles
 
 ---
@@ -105,7 +105,7 @@ Roll shears the pixel along the cross-track axis, pitch along the along-track ax
 |---|---|
 | `LOS.py` | Full projection chain, pixel footprint |
 | `attitude.py` | RPY → quaternion, quaternion → DCM |
-| `earth.py` | ECI ↔ ECEF, ECEF → lat/lon, LVLH → ECI, ellipsoid intersection |
+| `earth.py` | ECI ↔ ECEF, ECEF → lat/lon, LVLH → ECI, ellipsoid intersection, lat/lon → geodesic distance |
 | `satellite.py` | Orbital velocity, LVLH frame construction |
 | `display.py` | Basemap visualization, footprint rendering |
 
