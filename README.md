@@ -67,6 +67,7 @@ Lat / Lon + pixel footprint polygon
 - Input: quaternion `[w, x, y, z] or Roll/Pitch/Yaw angles (deg), both Rsat -> LVLH
 - RPY input are translated into a quaternion (ZYX conversion convention)
 - Quaternion is translated into a DCM with norm validation
+- Roll+ displaces toward +Y_LVLH (right of flight direction), Pitch+ toward +X_LVLH (along-track)
 
 **Earth model**
 - Flat plane (local approximation)
@@ -79,7 +80,8 @@ Lat / Lon + pixel footprint polygon
 - Pixel footprint polygon (4-corner projection)
 - Multi-pixel swath simulation (coming son)
 - Geometric deformation as a function of attitude angles
-
+- Accessible ground zone polygon (roll/pitch agility envelope)
+- 
 ---
 
 ## Example outputs
@@ -96,6 +98,12 @@ Ground projection of the 4 corners of the central pixel (i=512, j=512) for 4 att
 Roll shears the pixel along the cross-track axis, pitch along the along-track axis. The combined case shows how both effects accumulate, producing a pixel that is both displaced and geometrically distorted. At 500 km altitude with f=1.5m and 3.6µm pitch, the ground sampling distance is ~1.2m — the deformation, while sub-metre, is measurable and mission-relevant for geolocation accuracy and cal/val budget.
 
 <img width="1589" height="536" alt="image" src="https://github.com/user-attachments/assets/668457f2-17b0-4343-9736-38d56694f1b0" />
+
+### Accessible ground zone — agility envelope
+Ground projection of the accessible zone for a given roll and pitch agility. The boundary polygon is computed by sweeping roll ∈ [−roll_max, +roll_max] and pitch ∈ [−pitch_max, +pitch_max] and projecting the central pixel at each attitude. Orbit: 500 km SSO, sphere intersection model.
+The polygon boundary follows the natural curvature induced by the spherical Earth model. Roll+ displaces toward the right of the flight direction (+Y_LVLH), Pitch+ displaces forward along-track (+X_LVLH) — both are consistent with the satellite's actual flight direction regardless of ascending or descending pass. The nadir ground point is shown at center for reference.
+
+<img width="889" height="667" alt="image" src="https://github.com/user-attachments/assets/29c29c3f-aa0d-40e6-a1ea-dfc8aeb06613" />
 
 ---
 
