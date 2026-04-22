@@ -61,7 +61,7 @@ Lat / Lon + pixel footprint polygon
 
 **Payload–platform interface**
 - Instrument-to-satellite misalignment (3-axis small-angle rotation)
-- Independent from boresight — matches real ICD structure
+- Independent from boresight, matches real ICD structure
 
 **Attitude**
 - Input: quaternion `[w, x, y, z] or Roll/Pitch/Yaw angles (deg), both Rsat -> LVLH
