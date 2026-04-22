@@ -2,7 +2,7 @@
 
 **Pixel ground projection for Earth Observation optical payloads.**
 
-This toolbox implements the full geometric chain from pixel coordinates to ground footprint, including instrument model, payload–platform interfaces, attitude representation, and Earth surface intersection.
+This toolbox is a work in progress aiming to implement the full geometric chain from pixel coordinates to ground footprint, including instrument modeling, payload–platform interfaces, attitude representation, and Earth surface intersection.
 
 Developed by [Flora Gabriagues](https://floragabriagues.github.io) — Optical Payload & Image Quality Engineer.
 
